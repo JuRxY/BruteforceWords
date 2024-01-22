@@ -10,8 +10,9 @@ def generate_possibilities(letters: str):
 
     slovar = []
     with open('sbsj.txt', 'r', encoding='utf-8') as f:
-        line = f.readline()
-        slovar.append(line.strip())
+        lines = f.readlines()
+        for line in lines:
+            if line.strip() != "": slovar.append(line.strip())
 
     possibilities_list = []
     length = len(letters)
@@ -28,6 +29,7 @@ def generate_possibilities(letters: str):
             #with open("possibilities.txt", "a") as f:
             #    f.write("".join(j) + "\n")
 
+    #return list(set(possibilities_list)-(set(possibilities_list) - set(slovar)))
     return list(set(possibilities_list)-(set(possibilities_list) - set(slovar)))
 
 pos = generate_possibilities("rkao")
