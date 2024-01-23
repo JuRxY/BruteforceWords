@@ -6,7 +6,7 @@ def generate(list, word_length):
     yield from itertools.permutations(list, word_length)
 
 def generate_possibilities(letters: str):
-    open("possibilities.txt", "w").close()
+    #open("possibilities.txt", "w").close()
 
     slovar = []
     with open('sbsj.txt', 'r', encoding='utf-8') as f:
@@ -32,5 +32,5 @@ def generate_possibilities(letters: str):
     #return list(set(possibilities_list)-(set(possibilities_list) - set(slovar)))
     return list(set(possibilities_list)-(set(possibilities_list) - set(slovar)))
 
-pos = generate_possibilities("rkao")
-print(pos)
+#pos = generate_possibilities("olko")
+#print(pos)
