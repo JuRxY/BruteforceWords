@@ -11,7 +11,7 @@ def extract_text_from_screenshot():
     screenshot_np = np.array(screenshot)
 
     # Easyocr
-    reader = easyocr.Reader(['sl'], gpu="cuda:0")   #! CUDA only
+    reader = easyocr.Reader(['sl'])
     text_results = reader.readtext(screenshot_np)
 
     text_list = []  # [(crka: str, (x, y): tuple)]

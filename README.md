@@ -1,0 +1,1 @@
+runnej `venv\Scripts\Activate.ps1` prvo
