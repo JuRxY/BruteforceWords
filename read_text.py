@@ -3,7 +3,7 @@ import easyocr
 import numpy as np
 import words
 
-def cleanup_text(text):
+def cleanup_text(text: str):
     return "".join([c if c.isalpha() else "" for c in text]).strip()
 
 def extract_text_from_screenshot():

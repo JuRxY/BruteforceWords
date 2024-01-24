@@ -7,6 +7,7 @@ def generate(list, word_length):
 
 def generate_possibilities(letters: str):
     #open("possibilities.txt", "w").close()
+    letters = letters.lower()
 
     slovar = []
     with open('sbsj.txt', 'r', encoding='utf-8') as f:
