@@ -13,8 +13,8 @@ def extract_text_from_screenshot():
     screenshot_np = np.array(screenshot)    # dela kerkol image ka je np array
 
     # Easyocr
-    reader = easyocr.Reader(['sl'], gpu="cuda:0")   #! samo za cuda compatible GPU
-    text_results = reader.readtext(screenshot_np)   # screenshot_np (more bit np array)
+    reader = easyocr.Reader(['sl'])
+    text_results = reader.readtext(screenshot_np, width_ths=2, height_ths=0.1)   # screenshot_np (more bit np array)
     
 
     return (text_results, screenshot_np)
@@ -51,6 +51,6 @@ if __name__ == "__main__":
     cv2.waitKey(0)
 
     
-    pos = words.generate_possibilities("".join(text_list))
-    print(pos)
+    #pos = words.generate_possibilities("".join(text_list))
+    #print(pos)
 

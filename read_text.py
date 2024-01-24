@@ -12,7 +12,7 @@ def extract_text_from_screenshot():
 
     # Easyocr
     reader = easyocr.Reader(['sl'])
-    text_results = reader.readtext(screenshot_np)
+    text_results = reader.readtext(screenshot_np, width_ths=2, height_ths=0.1)  # tweakat je treba te parametre
 
     text_list = []  # [(crka: str, (x, y): tuple)]
     for (bbox, text, prob) in text_results:
@@ -24,7 +24,8 @@ def extract_text_from_screenshot():
 
         text = cleanup_text(text)
         if text == "5": text = "S"  # iz nekega razloga easyocr ne zna prebrt S u tem fontu
-        text_list.append((text, (int((tl[0] + br[0])/2), int((tl[1] + br[1])/2))))  # sori za tole ampak znajd se ;)
+        if text == "1": text = "I"
+        if len(text) != 0 and len(text) < 3: text_list.append((text, (int((tl[0] + br[0])/2), int((tl[1] + br[1])/2))))  # sori za tole ampak znajd se ;)
     
     return text_list
 
