@@ -32,5 +32,5 @@ def generate_possibilities(letters: str):
     #return list(set(possibilities_list)-(set(possibilities_list) - set(slovar)))
     return list(set(possibilities_list)-(set(possibilities_list) - set(slovar)))
 
-pos = generate_possibilities("okro")
-print(pos)
+#pos = generate_possibilities("okro")
+#print(pos)
