@@ -2,9 +2,15 @@ import pyautogui
 import easyocr
 import numpy as np
 import words
+from PIL import Image
+
+def crop_image(xs, ys, xe, ye):
+    screenshot = pyautogui.screenshot()
+    cropped = screenshot.crop((xs, ys, xe, ye))
+    return cropped
 
 def cleanup_text(text: str):
-    return "".join([c if c.isalpha() else "" for c in text]).strip()
+    return "".join([c if c.isalpha() or c.isdigit() else "" for c in text]).strip()
 
 def extract_text_from_screenshot():
     screenshot = pyautogui.screenshot()
@@ -25,8 +31,9 @@ def extract_text_from_screenshot():
         text = cleanup_text(text)
         if text == "5": text = "S"  # iz nekega razloga easyocr ne zna prebrt S u tem fontu
         if text == "1": text = "I"
+        if text == "0": text = "O"
         if len(text) != 0 and len(text) < 3: text_list.append((text, (int((tl[0] + br[0])/2), int((tl[1] + br[1])/2))))  # sori za tole ampak znajd se ;)
-    
+        
     return text_list
 
 res = extract_text_from_screenshot()
