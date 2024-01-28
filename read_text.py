@@ -2,7 +2,6 @@ import pyautogui
 import easyocr
 import numpy as np
 import words
-from PIL import Image
 
 def crop_image(xs, ys, xe, ye):
     screenshot = pyautogui.screenshot()
