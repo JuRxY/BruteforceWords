@@ -29,17 +29,8 @@ img = cv2.erode(img, kernel, iterations=3)
 img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 _, img = cv2.threshold(img, 20, 255, cv2.THRESH_BINARY)
 
+
 cv2.imshow("masked", cv2.resize(img, (960, 540)))
-
-
-# detection pre recognition
-contours, _ = cv2.findContours(img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-for contour in contours:
-    # Get the bounding box of the contour
-    x, y, w, h = cv2.boundingRect(contour)
-
-    # Extract the sub-image
-    sub_img = img[y:y+h, x:x+w]
 
 
 #! RECOGNITION

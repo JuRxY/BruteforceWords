@@ -23,8 +23,10 @@ while amout_of_levels:
                         pyautogui.mouseUp()
                     else:
                         pyautogui.moveTo(*coords)
-                    time.sleep(0.1)
+                    time.sleep(0.2)
     if amout_of_levels == True:
         pass
     if isinstance(amout_of_levels, int):
         amout_of_levels -= 1
+
+    time.sleep(5)
