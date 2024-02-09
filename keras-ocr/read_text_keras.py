@@ -49,7 +49,7 @@ for prediction_group in prediction_groups:
         screenshot_np = cv2.rectangle(screenshot_np, top_left, bottom_right, (0, 255, 0), 2)
 
 # Define the size of the window
-window_size = (960, 540)  # Example values
+window_size = (960, 540)
 
 # Resize the screenshot
 screenshot_resized = cv2.resize(screenshot_np, window_size)
