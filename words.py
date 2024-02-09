@@ -18,7 +18,7 @@ def generate_possibilities(letters: str):
     possibilities_list = []
     length = len(letters)
     total_possibilities = sum(math.factorial(length) // math.factorial(length - i) for i in range(3, length + 1))
-    print(f"There are `{total_possibilities}` possibilities")
+    #? print(f"There are `{total_possibilities}` possibilities")
     #with open("wordlist.txt", "r") as f:
     #    global seznam_besed
     #    seznam_besed = f.read().splitlines()
